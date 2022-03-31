@@ -9,6 +9,7 @@ function sanitizeAndSave(contents) {
     let informations = {};
     let jobs = {};
     contents.forEach(content => {
+        console.log(content);
         for (let id in content) {
             const parsedContent = parseFields(content[id])
             if (parsedContent.name) informations[id] = {name: parseFields(contents.get('users.json')[id]).name || parsedContent.name};
@@ -24,7 +25,7 @@ function sanitizeAndSave(contents) {
     saveIntoFile('informations.json', informations);
     saveIntoFile('jobs.json', jobs);
     saveIntoFile('compiled.json', compiled);
-    return {jobs,users,informations,compiled}
+    return {jobs, users, informations, compiled}
 
 }
 
