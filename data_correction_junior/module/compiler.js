@@ -8,7 +8,6 @@ function createCompiled(information, job, user, id) {
 
     };
     return compiled;
-
 }
 
 module.exports = createCompiled;

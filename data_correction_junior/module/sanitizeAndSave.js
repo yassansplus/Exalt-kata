@@ -9,23 +9,24 @@ function sanitizeAndSave(contents) {
     let informations = {};
     let jobs = {};
     contents.forEach(content => {
-        console.log(content);
         for (let id in content) {
-            const parsedContent = parseFields(content[id])
+            const parsedContent = parseFields(content[id]);
+            // Priority according to the instructions of the kata.
             if (parsedContent.name) informations[id] = {name: parseFields(contents.get('users.json')[id]).name || parsedContent.name};
             if (parsedContent.job) jobs[id] = {job: parsedContent.job};
             if (parsedContent.age) users[id] = {age: parseFields(contents.get('informations.json')[id]).age} || {age: parsedContent.age};
             if (parsedContent.city) users[id] = {...users[id], city: parsedContent.city};
-            compiled = {...compiled, ...createCompiled(informations[id], jobs[id], users[id], id)}
+            compiled = {...compiled, ...createCompiled(informations[id], jobs[id], users[id], id)};
 
         }
     })
-    // saveThemAll
+
+    // save them all
     saveIntoFile('users.json', users);
     saveIntoFile('informations.json', informations);
     saveIntoFile('jobs.json', jobs);
     saveIntoFile('compiled.json', compiled);
-    return {jobs, users, informations, compiled}
+    return {jobs, users, informations, compiled};
 
 }
 
