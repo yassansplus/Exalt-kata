@@ -2,7 +2,6 @@ const parseFields = require("./parseField");
 const createCompiled = require("./compiler");
 const saveIntoFile = require("./saveIntoFile");
 
-
 // This function will Sanitize datas from httpRequest then save them into file which have their name.
 function sanitizeAndSave(contents) {
     let compiled = {};
@@ -20,12 +19,12 @@ function sanitizeAndSave(contents) {
 
         }
     })
-    console.log(compiled);
     // saveThemAll
     saveIntoFile('users.json', users);
     saveIntoFile('informations.json', informations);
     saveIntoFile('jobs.json', jobs);
     saveIntoFile('compiled.json', compiled);
+    return {jobs,users,informations,compiled}
 
 }
 

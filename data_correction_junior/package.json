@@ -4,7 +4,8 @@
   "description": "Exalt IT Katas NodeJS ",
   "scripts": {
     "run_bigparsing_confirmed": "node ../bigparsing_confirmed",
-    "run_data_correction_junior": "node "
+    "run_data_correction_junior": "node ",
+    "test": "node ./test/resultTest.js "
   },
   "keywords": [],
   "author": "",
@@ -13,6 +14,7 @@
     "axios": "^0.26.1",
     "express": "^4.17.1",
     "jsonbox-node": "^1.0.7",
+    "lodash": "^4.17.21",
     "node-fetch": "^2.6.1"
   }
 }
